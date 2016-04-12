@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ReportServerParameter xmlVersion="20110221"> 
+  <ServerLogLevel> <![CDATA[WARNING]]></ServerLogLevel>  
+  <LOGCNG/>  
+  <FARRAY/>  
+  <Write serverCharacterEncoding="GBK"/>  
+  <GZip run="true"/>  
+  <Lic useLock="false"/>  
+  <ServletMapping pattern="ReportServer"/>  
+  <ReportWebAttr> 
+    <ServerPrinter/>  
+    <WebPageContent> 
+      <ToolBars> 
+        <ToolBarManager> 
+          <Location> 
+            <Embed position="1"/> 
+          </Location>  
+          <ToolBar> 
+            <Widget class="com.fr.report.web.ui.impl.page.First"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[first]]></IconName>  
+              <Text><![CDATA[首页]]></Text>
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.page.Previous"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[previous]]></IconName>  
+              <Text><![CDATA[上一页]]></Text>
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.page.PageNavi"> 
+              <WidgetAttr/> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.page.Next"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[next]]></IconName>  
+              <Text><![CDATA[下一页]]></Text>
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.page.Last"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[last]]></IconName>  
+              <Text><![CDATA[末页]]></Text>
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.FlashPrint"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[flashprint]]></IconName>  
+              <Text><![CDATA[打印[客户端]A]]></Text>
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.Print"> 
+              <WidgetAttr/>  
+              <IconName> <![CDATA[print]]></IconName>  
+              <PrintButtons/>  
+              <Text><![CDATA[打印]]></Text>
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.Export"> 
+              <WidgetAttr/>  
+              <IconName> <![CDATA[export]]></IconName>  
+              <Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true"/>  
+              <Text><![CDATA[输出]]></Text>
+            </Widget> 
+          </ToolBar> 
+        </ToolBarManager> 
+      </ToolBars>  
+      <WebPage isPage="false" isShowAsImage="false" isAutoScale="false"/> 
+    </WebPageContent>  
+    <WebWriteContent> 
+      <ToolBars> 
+        <ToolBarManager> 
+          <Location> 
+            <Embed position="1"/> 
+          </Location>  
+          <ToolBar> 
+            <Widget class="com.fr.report.web.ui.impl.write.Submit"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[submit]]></IconName>  
+              <Verify failVerifySubmit="false"/>  
+              <Text><![CDATA[提交]]></Text> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.write.Verify"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[verify]]></IconName>  
+              <Text><![CDATA[数据校验]]></Text> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.FlashPrint"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[flashprint]]></IconName>  
+              <Text><![CDATA[打印[客户端]A]]></Text> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.Print"> 
+              <WidgetAttr/>  
+              <IconName> <![CDATA[print]]></IconName>  
+              <PrintButtons/>  
+              <Text><![CDATA[打印]]></Text> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.Export"> 
+              <WidgetAttr/>  
+              <IconName> <![CDATA[export]]></IconName>  
+              <Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true"/>  
+              <Text><![CDATA[输出]]></Text> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.write.AppendColumnRow"> 
+              <WidgetAttr disabled="true"/>  
+              <IconName> <![CDATA[appendcolumn]]></IconName>  
+              <Text><![CDATA[增加记录]]></Text> 
+            </Widget>  
+            <Widget class="com.fr.report.web.ui.impl.write.ShowCellValue"> 
+              <WidgetAttr/>  
+              <LabelAttr textalign="0" autoline="false"/> 
+            </Widget> 
+          </ToolBar> 
+        </ToolBarManager> 
+      </ToolBars>  
+      <SelectedColor/> 
+    </WebWriteContent> 
+  </ReportWebAttr>  
+  <EmailManager mailHost="" password="___" user="" fromEmailAddress=""/>  
+  <Parameters/>  
+  <Styles> 
+    <SAttr name="Title"> 
+      <Style horizontal_alignment="0"> 
+        <FRFont name="SimSun" style="1" size="108" foreground="-16737895"/>  
+        <Background name="NullBackground"/>  
+        <Border/> 
+      </Style> 
+    </SAttr>  
+    <SAttr name="Head"> 
+      <Style> 
+        <FRFont name="SimSun" style="0" size="72"/>  
+        <Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="2"> 
+          <IM> <![CDATA[lO<9(kN.ld@UNU%p%320@UNU)#I6cXfRW$ncQ/@&<0O5<@n=S@[oX!K%L!+t*8LGkV28*<fV
+1DR2+&2#M*'iG9!?fn`jEHhj.>Qf/%>^"4u8^;2W-f-"/[-Ps"#=CT4LGm?)6rkX]Ap9;)cg,
+:Xp=M>^R`IX>57);OBFYLBS"_e1Gss7S9)tL+\09b!LY7c2&TIA?%9m4n<NhHK^]A5-XNuS&?
+,PUblK>Iu.A7%J~
+]]></IM> 
+        </Background>  
+        <Border> 
+          <Top style="1" color="-6697729"/>  
+          <Bottom style="1" color="-6697729"/>  
+          <Left style="1" color="-6697729"/>  
+          <Right style="1" color="-6697729"/> 
+        </Border> 
+      </Style> 
+    </SAttr>  
+    <SAttr name="Explanation"> 
+      <Style> 
+        <FRFont name="SimSun" style="0" size="72"/>  
+        <Background name="NullBackground"/>  
+        <Border> 
+          <Top style="3" color="-6697729"/>  
+          <Bottom style="3" color="-6697729"/>  
+          <Left style="3" color="-6697729"/>  
+          <Right style="3" color="-6697729"/> 
+        </Border> 
+      </Style> 
+    </SAttr>  
+    <SAttr name="RTitle"> 
+      <Style horizontal_alignment="4"> 
+        <FRFont name="SimSun" style="1" size="132" foreground="-16751002"/>  
+        <Background name="NullBackground"/>  
+        <Border/> 
+      </Style> 
+    </SAttr>  
+    <SAttr name="Head1"> 
+      <Style horizontal_alignment="0"> 
+        <FRFont name="SimSun" style="0" size="72"/>  
+        <Background name="ColorBackground" color="-1577999"/>  
+        <Border> 
+          <Top style="1" color="-6697729"/>  
+          <Bottom style="1" color="-6697729"/> 
+        </Border> 
+      </Style> 
+    </SAttr>  
+    <SAttr name="Head2"> 
+      <Style horizontal_alignment="0"> 
+        <FRFont name="SimSun" style="1" size="72"/>  
+        <Background name="ColorBackground" color="-1577999"/>  
+        <Border> 
+          <Top style="1" color="-6697729"/>  
+          <Bottom style="1" color="-6697729"/>  
+          <Left style="1" color="-6697729"/>  
+          <Right style="1" color="-6697729"/> 
+        </Border> 
+      </Style> 
+    </SAttr>  
+    <SAttr name="cell"> 
+      <Style horizontal_alignment="0"> 
+        <FRFont name="SimSun" style="0" size="72"/>  
+        <Background name="NullBackground"/>  
+        <Border> 
+          <Top style="1" color="-6697729"/>  
+          <Bottom style="1" color="-6697729"/>  
+          <Left style="1" color="-6697729"/>  
+          <Right style="1" color="-6697729"/> 
+        </Border> 
+      </Style> 
+    </SAttr> 
+  </Styles>  
+  <FlashPrint popupFlashPrintSetting="true" fitPaper="false"/>  
+  <PdfPrint popupPdfPrintSetting="true"/>  
+  <AppletPrint popupAppletPrintSetting="true"/>  
+  <IEPath iePath=""/>  
+  <FFPath firefoxPath=""/>  
+  <Path360 path360=""/>  
+  <ChromePath chromePath=""/> 
+</ReportServerParameter>

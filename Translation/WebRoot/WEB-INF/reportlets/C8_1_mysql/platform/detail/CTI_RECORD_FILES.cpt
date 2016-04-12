@@ -1,0 +1,1601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20110221">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="agent_ext"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="stop_time"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="channel_uuid"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="agent_id"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="caller_number"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cti_call_direction1"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cti_call_uuid1"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="vm_number"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="org_id"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="callee_number"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="work_id"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="start_time"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cti_record_type"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="agent_session_id"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="agent_name"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cc_queue"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctidb_mysql]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select id
+      ,channel_uuid
+      ,cti_call_direction
+      ,cti_call_uuid
+      ,caller_number
+      ,callee_number
+      ,start_time
+      ,stop_time
+      ,cc_queue
+      ,agent_id
+      ,agent_session_id
+      ,org_id
+      ,vm_number
+      ,cti_record_type
+      ,url_prefix
+      ,cti_record_type1
+      ,agent_name
+      ,agent_ext
+      ,work_id
+      ,direction1
+      ,rf
+      ,sec_to_time(timestampdiff(second,start_time,stop_time)) d1
+  from v_report_record_files
+where  1=1
+${if( len(start_time)==0,""," and date_format(start_time,'%Y-%m-%d')>='"+start_time+"'")}
+${if( len(stop_time)==0,""," and date_format(start_time,'%Y-%m-%d')<='"+stop_time+"'")}
+${if( len(caller_number)==0,""," and caller_number='"+caller_number+"'")}
+${if( len(callee_number)==0,""," and callee_number='"+callee_number+"'")}
+${if( len(channel_uuid)==0,""," and channel_uuid='"+channel_uuid+"'")}
+${if( len(cti_call_direction1)==0,""," and cti_call_direction='"+cti_call_direction1+"'")}
+${if( len(cti_call_uuid1)==0,""," and cti_call_uuid='"+cti_call_uuid1+"'")}
+${if( len(cc_queue)==0,""," and cc_queue='"+cc_queue+"'")}
+${if( len(agent_id)==0,""," and agent_id='"+agent_id+"'")}
+${if( len(agent_session_id)==0,""," and agent_session_id='"+agent_session_id+"'")}
+${if( len(org_id)==0,""," and org_id='"+org_id+"'")}
+${if( len(vm_number)==0,""," and vm_number='"+vm_number+"'")}
+${if( len(cti_record_type)==0,""," and cti_record_type='"+cti_record_type+"'")}
+${if( len(agent_name)==0,""," and agent_name='"+agent_name+"'")}
+${if( len(agent_ext)==0,""," and agent_ext='"+agent_ext+"'")}
+${if( len(work_id)==0,""," and work_id='"+work_id+"'")}]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="1"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[1485900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1943100,0,3124200,9083040,3047040,3047040,4495800,4533900,2743200,2743200,2743200,3695700,4968240,3200400,2743200,4145280,8991600,8991600,0,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="19" s="0">
+
+<Expand/>
+<O><![CDATA[录音记录]]></O></C>
+<C c="0" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[序号]]></O></C>
+<C c="1" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[组织ID]]></O></C>
+<C c="2" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[呼叫方向]]></O></C>
+<C c="3" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[呼叫标识]]></O></C>
+<C c="4" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[主叫号码]]></O></C>
+<C c="5" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[被叫号码]]></O></C>
+<C c="6" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[开始时间]]></O></C>
+<C c="7" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[结束时间]]></O></C>
+<C c="8" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[录音时长]]></O></C>
+<C c="9" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[录音类型]]></O></C>
+<C c="10" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[语音信箱]]></O></C>
+<C c="11" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[队列]]></O></C>
+<C c="12" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[座席分机]]></O></C>
+<C c="13" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[座席名称]]></O></C>
+<C c="14" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[座席工号]]></O></C>
+<C c="15" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[坐席ID]]></O></C>
+<C c="16" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[座席会话ID]]></O></C>
+<C c="17" r="1" s="1">
+
+<Expand/>
+<O><![CDATA[通道ID]]></O></C>
+<C c="18" r="1" s="2">
+
+<Expand/>
+<O><![CDATA[录音文件]]></O></C>
+<C c="0" r="2" s="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SEQ()]]></Attributes>
+</O>
+<Expand dir="0" leftParentDefault="false" left="B3" order="1">
+<SortFormula>
+<![CDATA[SEQ()]]></SortFormula>
+</Expand>
+</C>
+<C c="1" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="ORG_ID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="2" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DIRECTION1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="3" r="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CTI_CALL_UUID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="JavaScript1">
+<JavaScript class="com.fr.report.js.JavaScriptImpl">
+<Parameters>
+<Parameter>
+<Attributes name="a"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=S3]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+<Content>
+<![CDATA[window.open(a,'','height=100,width=400,top=400,left=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no, status=no');]]></Content>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="4" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CALLER_NUMBER"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="5" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CALLEE_NUMBER"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="6" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="START_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="7" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="STOP_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="8" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="d1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="9" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CTI_RECORD_TYPE1"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="10" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="VM_NUMBER"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="11" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CC_QUEUE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="12" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="AGENT_EXT"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="13" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="AGENT_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="14" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="WORK_ID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="15" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="AGENT_ID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="16" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="AGENT_SESSION_ID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="17" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CHANNEL_UUID"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 1 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-1"/>
+</HighlightAction>
+<Name><![CDATA[条件属性1]]></Name></Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[row() % 2 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-853761"/>
+</HighlightAction>
+<Name><![CDATA[条件属性2]]></Name></Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="18" r="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="rf"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="60480000" height="77760000"/>
+<Margin top="288000" left="288000" bottom="986400" right="1440000"/>
+</PaperSetting>
+</ReportSettings>
+</ReportAttrSet>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="1"/>
+
+<ParameterUI class="com.fr.report.parameter.CustomParameterUI">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[722880,38100,723900,38100,722880,38100,685800,38100,0,0,0,0,0,0,76200,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[3009900,2095500,3848100,114300,1981200,4762500,152400,2971800,5715000,1981200,0,0,4419600,1123200,1123200,1104900,2171700,1123200,1123200,1123200,1123200,1066800,1296000,432000,1152000,432000,1152000,864000,1181100,1296000,432000,1152000,432000,1152000,838200,419100,720000,720000,720000,304800,2133600,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="7">
+
+<Expand/>
+<O><![CDATA[主叫号码]]></O></C>
+<C c="1" r="0" cs="2" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="caller_number"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="0" s="7">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="4" r="0" s="7">
+
+<Expand/>
+<O><![CDATA[队列]]></O></C>
+<C c="5" r="0" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="cc_queue"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="0" s="7">
+<Expand/>
+</C>
+<C c="7" r="0" s="7">
+
+<Expand/>
+<O><![CDATA[座席名称]]></O></C>
+<C c="8" r="0" s="7">
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="agent_name"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="0" vi="0"/>
+<Formula>
+<![CDATA[select distinct
+      agent_name
+  from cti_agent_session]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctidb_mysql]]></DatabaseName>
+</Connection>
+</Dictionary>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="0">
+
+<Expand/>
+<O><![CDATA[开始时间]]></O></C>
+<C c="10" r="0" s="7">
+
+<Expand/>
+<O><![CDATA[开始时间]]></O></C>
+<C c="11" r="0" s="8">
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="START_TIME"/>
+<WidgetAttr/>
+<DateAttr start="" end=""/>
+</Widget>
+<Expand/>
+</C>
+<C c="12" r="0" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=TODAY()]]></Attributes>
+</O>
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="start_time"/>
+<WidgetAttr/>
+<DateAttr start="" end=""/>
+</Widget>
+<Expand/>
+</C>
+<C c="13" r="0" cs="3" s="7">
+
+<Widget class="com.fr.report.web.ui.impl.form.FormSubmitButton">
+<WidgetAttr/>
+<Hotkeys>
+<![CDATA[enter]]></Hotkeys>
+</Widget>
+<Expand/>
+<O><![CDATA[查询]]></O></C>
+<C c="0" r="1" s="7">
+<Expand/>
+</C>
+<C c="1" r="1" s="7">
+<Expand/>
+</C>
+<C c="2" r="1" s="7">
+<Expand/>
+</C>
+<C c="3" r="1" s="7">
+<Expand/>
+</C>
+<C c="4" r="1" s="7">
+<Expand/>
+</C>
+<C c="5" r="1" s="7">
+<Expand/>
+</C>
+<C c="6" r="1" s="7">
+<Expand/>
+</C>
+<C c="7" r="1" s="7">
+<Expand/>
+</C>
+<C c="8" r="1" s="7">
+<Expand/>
+</C>
+<C c="9" r="1" s="7">
+<Expand/>
+</C>
+<C c="10" r="1" s="7">
+<Expand/>
+</C>
+<C c="11" r="1" s="7">
+<Expand/>
+</C>
+<C c="0" r="2" s="7">
+
+<Expand/>
+<O><![CDATA[被叫号码]]></O></C>
+<C c="1" r="2" cs="2" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="callee_number"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="2" s="7">
+<Expand/>
+</C>
+<C c="4" r="2" s="7">
+
+<Expand/>
+<O><![CDATA[座席工号]]></O></C>
+<C c="5" r="2" s="7">
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="work_id"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="0" vi="0"/>
+<Formula>
+<![CDATA[select distinct
+work_id
+  from cti_agent_session]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctidb_mysql]]></DatabaseName>
+</Connection>
+</Dictionary>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="2" s="7">
+<Expand/>
+</C>
+<C c="7" r="2" s="7">
+
+<Expand/>
+<O><![CDATA[座席分机]]></O></C>
+<C c="8" r="2" s="7">
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="agent_ext"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="0" vi="0"/>
+<Formula>
+<![CDATA[select distinct
+agent_ext
+  from cti_agent_session]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctidb_mysql]]></DatabaseName>
+</Connection>
+</Dictionary>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="2" s="7">
+
+<Expand/>
+<O><![CDATA[结束时间]]></O></C>
+<C c="10" r="2" s="7">
+
+<Expand/>
+<O><![CDATA[结束时间]]></O></C>
+<C c="11" r="2" s="8">
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="STOP_TIME"/>
+<WidgetAttr/>
+<DateAttr start="" end=""/>
+</Widget>
+<Expand/>
+</C>
+<C c="12" r="2" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=format(DATEDELTA(TODAY(), 1), "yyyy-MM-dd")]]></Attributes>
+</O>
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="stop_time"/>
+<WidgetAttr/>
+<DateAttr start="" end=""/>
+</Widget>
+<Expand/>
+</C>
+<C c="0" r="3" s="7">
+<Expand/>
+</C>
+<C c="1" r="3" s="7">
+<Expand/>
+</C>
+<C c="2" r="3" s="7">
+<Expand/>
+</C>
+<C c="3" r="3" s="7">
+<Expand/>
+</C>
+<C c="4" r="3" s="7">
+<Expand/>
+</C>
+<C c="5" r="3" s="7">
+<Expand/>
+</C>
+<C c="6" r="3" s="7">
+<Expand/>
+</C>
+<C c="7" r="3" s="7">
+<Expand/>
+</C>
+<C c="8" r="3" s="7">
+<Expand/>
+</C>
+<C c="9" r="3" s="7">
+<Expand/>
+</C>
+<C c="10" r="3" s="7">
+<Expand/>
+</C>
+<C c="11" r="3" s="7">
+<Expand/>
+</C>
+<C c="0" r="4" s="7">
+
+<Expand/>
+<O><![CDATA[语音信箱]]></O></C>
+<C c="1" r="4" cs="2">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="vm_number"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="4" s="7">
+<Expand/>
+</C>
+<C c="4" r="4" s="7">
+
+<Expand/>
+<O><![CDATA[录音类型]]></O></C>
+<C c="5" r="4">
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="cti_record_type"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="agent" value="座席录音"/>
+<Dict key="ext" value="分机录音"/>
+<Dict key="vm" value="语音留言"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Expand/>
+</C>
+<C c="7" r="4" s="7">
+
+<Expand/>
+<O><![CDATA[呼叫方向]]></O></C>
+<C c="8" r="4">
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="cti_call_direction1"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="outbound" value="呼出"/>
+<Dict key="inbound" value="呼入"/>
+<Dict key="local" value="本地呼叫"/>
+<Dict key="inner" value="内呼"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="4" s="7">
+
+<Expand/>
+<O><![CDATA[组织ID]]></O></C>
+<C c="10" r="4" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="ORG_ID"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="11" r="4" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="CTI_CALL_DIRECTION"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="12" r="4" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="org_id"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="0" r="5" s="7">
+<Expand/>
+</C>
+<C c="1" r="5" s="7">
+<Expand/>
+</C>
+<C c="2" r="5" s="7">
+<Expand/>
+</C>
+<C c="3" r="5" s="7">
+<Expand/>
+</C>
+<C c="4" r="5" s="7">
+<Expand/>
+</C>
+<C c="5" r="5" s="7">
+<Expand/>
+</C>
+<C c="6" r="5" s="7">
+<Expand/>
+</C>
+<C c="7" r="5" s="7">
+<Expand/>
+</C>
+<C c="8" r="5" s="7">
+<Expand/>
+</C>
+<C c="9" r="5" s="7">
+<Expand/>
+</C>
+<C c="10" r="5" s="7">
+<Expand/>
+</C>
+<C c="11" r="5" s="7">
+<Expand/>
+</C>
+<C c="0" r="6" s="7">
+
+<Expand/>
+<O><![CDATA[通道ID]]></O></C>
+<C c="1" r="6" cs="2" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="channel_uuid"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="6" s="7">
+<Expand/>
+</C>
+<C c="4" r="6" s="7">
+
+<Expand/>
+<O><![CDATA[座席ID]]></O></C>
+<C c="5" r="6" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="agent_id"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="6" s="7">
+<Expand/>
+</C>
+<C c="7" r="6" s="7">
+
+<Expand/>
+<O><![CDATA[呼叫标识]]></O></C>
+<C c="8" r="6" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="cti_call_uuid1"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="6" s="7">
+
+<Expand/>
+<O><![CDATA[会话ID]]></O></C>
+<C c="10" r="6" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="AGENT_SESSION_ID"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="11" r="6" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="CTI_CALL_UUID"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="12" r="6" s="7">
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="agent_session_id"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="14">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="6" r="14">
+<Expand/>
+</C>
+<C c="7" r="14">
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+</ReportSettings>
+</ReportAttrSet>
+</ParameterUI>
+<PWTitle><![CDATA[参数]]></PWTitle></ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="160"/>
+<Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="2">
+<IM>
+<![CDATA[lO<9(kN.ld@UNU%p%320@UNU)#I6cXfRW$ncQ/@&<0O5<@n=S@[oX!K%L!+t*8LGkV28*<fV
+1DR2+&2#M*'iG9!?fn`jEHhj.>Qf/%>^"4u8^;2W-f-"/[-Ps"#=CT4LGm?)6rkX]Ap9;)cg,
+:Xp=M>^R`IX>57);OBFYLBS"_e1Gss7S9)tL+\09b!LY7c2&TIA?%9m4n<NhHK^]A5-XNuS&?
+,PUblK>Iu.A7%J~
+]]></IM>
+</Background>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="2">
+<IM>
+<![CDATA[lO<9(kN.ld@UNU%p%320@UNU)#I6cXfRW$ncQ/@&<0O5<@n=S@[oX!K%L!+t*8LGkV28*<fV
+1DR2+&2#M*'iG9!?fn`jEHhj.>Qf/%>^"4u8^;2W-f-"/[-Ps"#=CT4LGm?)6rkX]Ap9;)cg,
+:Xp=M>^R`IX>57);OBFYLBS"_e1Gss7S9)tL+\09b!LY7c2&TIA?%9m4n<NhHK^]A5-XNuS&?
+,PUblK>Iu.A7%J~
+]]></IM>
+</Background>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="2">
+<IM>
+<![CDATA[lO<9(kN.ld@UNU%p%320@UNU)#I6cXfRW$ncQ/@&<0O5<@n=S@[oX!K%L!+t*8LGkV28*<fV
+1DR2+&2#M*'iG9!?fn`jEHhj.>Qf/%>^"4u8^;2W-f-"/[-Ps"#=CT4LGm?)6rkX]Ap9;)cg,
+:Xp=M>^R`IX>57);OBFYLBS"_e1Gss7S9)tL+\09b!LY7c2&TIA?%9m4n<NhHK^]A5-XNuS&?
+,PUblK>Iu.A7%J~
+]]></IM>
+</Background>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-3342388"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72" foreground="-16776961" underline="1"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+</WorkBook>

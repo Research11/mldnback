@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20110221">
+<ConnectionMap>
+<Connection name="ES2007" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@192.168.190.92:1521:orcl" driver="oracle.jdbc.driver.OracleDriver" user="fixuser2013110402" password="___007500270072007a001700b0005900250023007f0039003e005500e5001f00270021" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="FRDemo" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=E:\FounderFix\培训\FineReport\WebReport\WebReport\FRDemo.mdb" driver="sun.jdbc.odbc.JdbcOdbcDriver" user="" password="___" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="con3" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:mysql://192.168.5.223:3306/jeecg?useUnicode=true&amp;characterEncoding=UTF-8" driver="com.mysql.jdbc.Driver" user="root" password="___007e00370079007e0008" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="con4" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@192.168.5.223:1521:orcl" driver="oracle.jdbc.driver.OracleDriver" user="g4studio" password="___0074007a0079007b001100b100420078" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="ctidb" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:sqlserver://192.168.1.8:1433;databaseName=ctidb" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" user="c8user2" password="___007e003700690060000900b8001a00250020" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="ctidb_pub" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:sqlserver://110.84.129.51:1433;databaseName=ctidb" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" user="sa" password="___0070003a00630036005200ed001a00260022006f004a002c" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="sql2012" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:sqlserver://192.168.1.182:1433;databaseName=ctidb" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" user="sa" password="___0022003f006b0075002400820078004f" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="bldc" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:sqlserver://192.168.1.180:1433;databaseName=MyCommDBIoFamily" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" user="sa" password="___007e003700690060000900b8001a00250020" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="c8db" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:mysql://192.168.1.8/" driver="com.mysql.jdbc.Driver" user="c8user" password="___00700076007f007c000100a7" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="ctidb_mysql" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:mysql://127.0.0.1/c8config" driver="com.mysql.jdbc.Driver" user="root" password="mycomm123" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</ConnectionMap>
+<TableDataMap>
+<TableData name="server" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ES2007NEWJAVA]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM STSCORE]]></Query>
+</TableData>
+</TableDataMap>
+</DatasourceManager>
